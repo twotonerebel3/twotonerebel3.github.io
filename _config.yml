@@ -23,7 +23,7 @@ email: jupadhyay1@yahoo.com
 description: >- # this means to ignore newlines until "baseurl:"
   My own personal journey towards becoming a software developer. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/about" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: N/A
 github_username:  twotonerebel3
