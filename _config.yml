@@ -21,14 +21,14 @@
 title: Coding Journal
 email: jupadhyay1@yahoo.com
 description: >- # this means to ignore newlines until "baseurl:"
-  My own personal journey towards becoming a software developer. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  My own personal journey towards becoming a software developer. DataStructures and Algorithms will be my focus. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: twotonerebel3
 github_username:  twotonerebel3
 
 # Build settings
+future: true
 theme: minima
 plugins:
   - jekyll-feed

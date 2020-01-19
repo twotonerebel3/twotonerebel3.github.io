@@ -6,9 +6,9 @@ categories: recursion C++  datastructures
 ---
 # What is Recursion?
 	
-Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial. 
+Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion(Linked lists, trees, search algorithms). Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial. 
 
-# What is factorial?
+# What is Factorial?
 A factorial function offers a wonderful opportunity to understand and trace recursion without becoming overwhelmed by the idea.Briefly, factorial is notated by a number followed by exclamation point, meaning that number multiplied by each number less than it until it is <=1. Essentially, 4! is 4\*3\*2\*1.Other examples as follows.
 - 2!= 2*1 
 - 0!= 1
