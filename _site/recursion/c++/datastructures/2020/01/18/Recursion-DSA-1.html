@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Recursion in C++ | Coding Journal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Recursion in C++" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What is Recursion? Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial." />
+<meta property="og:description" content="What is Recursion? Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial." />
+<link rel="canonical" href="http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html" />
+<meta property="og:url" content="http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html" />
+<meta property="og:site_name" content="Coding Journal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-18T15:34:04-08:00" />
+<script type="application/ld+json">
+{"headline":"Recursion in C++","dateModified":"2020-01-18T15:34:04-08:00","datePublished":"2020-01-18T15:34:04-08:00","description":"What is Recursion? Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html"},"@type":"BlogPosting","url":"http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Coding Journal" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Coding Journal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Recursion in C++</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-01-18T15:34:04-08:00" itemprop="datePublished">Jan 18, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="what-is-recursion">What is Recursion?</h1>
+
+<p>Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial.</p>
+
+<h1 id="what-is-factorial">What is factorial?</h1>
+<p>A factorial function offers a wonderful opportunity to understand and trace recursion without becoming overwhelmed by the idea.Briefly, factorial is notated by a number followed by exclamation point, meaning that number multiplied by each number less than it until it is &lt;=1. Essentially, 4! is 4*3*2*1.Other examples as follows.</p>
+<ul>
+  <li>2!= 2*1</li>
+  <li>0!= 1</li>
+  <li>1!= 1</li>
+</ul>
+
+<p>So now we have a understanding of factorial, lets jump into a function for recursion(written in C++)!</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="c1">// A function for factorial. Takes and returns an integer.</span>
+<span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">num</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">//Exit condition</span>
+	<span class="k">return</span> <span class="n">num</span><span class="p">;</span>
+<span class="k">else</span>
+	<span class="k">return</span> <span class="n">num</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="c1">// Recursively calling the factorial function here. </span>
+<span class="p">}</span></code></pre></figure>
+
+<h1 id="tracing">Tracing</h1>
+<p>For simplicity of tracing, F1 is the original function, F2 is the second call of the function until F99(99th call of the function).</p>
+<ol>
+  <li>
+    <p>Attempting to trace this function with the number 3, we skip the first if statement and land at the else, arriving to 3*factorial(2).
+Here the computer calls the function again. Here a couple things happen under the hood.<strong>The current function(F1)pauses on the line return 3*factorial(2), while the function2(factorial(2)) becomes priority. 
+After the function2(F2) finishes executing, function1(F1) resumes.</strong></p>
+  </li>
+  <li>
+    <p>So we continue with factorial(2), which again skips the if statement and runs the else statement leading to 2*factorial(1). <strong>F2 pauses here and F3 begins</strong>.</p>
+  </li>
+  <li>
+    <p>This time though, factorial(1) simply returns 1 back to the previous function(f2)<strong>F3 finishes</strong>.</p>
+  </li>
+  <li>
+    <p>F2 resumes at 2*1, which 1 was returned from F3. F2 returns the product,2. <strong>F2 finishes</strong>.</p>
+  </li>
+  <li>
+    <p>F1 resume at 3*2, which 2 was returned from F2. F1 returns the product 6 back to which function we imagined originally called it to run. <strong>F1 finishes</strong>.</p>
+  </li>
+</ol>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>If you made it this far, congratulations. At this point you have some understanding of recursion.
+<img src="https://cdn.discordapp.com/attachments/219382924540248065/668253617937055806/unknown.gif" alt="Man walking into room on fire" /></p>
+
+<p>It may feel intimidating or difficult still however with time and implementation, the difficulty will rapidly decline. The next step lies in both identifying recursive opportunities and implementation.</p>
+<h1 id="further-learning">Further Learning</h1>
+
+<p>I highly recommend you spend time implementing Fibonacchi sequence, a simple search, exponent functions using recursion. Writing some of these both recursively and without recursion will benefit your understanding and usage of recursion. Later, if you identify a repetition of a certain process, it may be a good candidate for recursion.</p>
+
+<h1 id="resources">Resources</h1>
+<p>If you would like the read more about recurison, here are some resources I used.</p>
+
+<p><a href="https://beginnersbook.com/2017/08/cpp-recursion/">C++ implementation of factorial</a></p>
+
+<p><a href="https://javascript.info/recursion">More indepth resource but in Java</a></p>
+
+
+  </div><a class="u-url" href="/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Coding Journal</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Coding Journal</li><li><a class="u-email" href="mailto:jupadhyay1@yahoo.com">jupadhyay1@yahoo.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/twotonerebel3"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">twotonerebel3</span></a></li><li><a href="https://www.twitter.com/twotonerebel3"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">twotonerebel3</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>My own personal journey towards becoming a software developer. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

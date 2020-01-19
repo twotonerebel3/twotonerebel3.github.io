@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-17T16:53:51-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Coding Journal</title><subtitle>My own personal journey towards becoming a software developer. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">First Jekyll Post!</title><link href="http://localhost:4000/jekyll/update/2020/01/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="First Jekyll Post!" /><published>2020-01-17T16:22:04-08:00</published><updated>2020-01-17T16:22:04-08:00</updated><id>http://localhost:4000/jekyll/update/2020/01/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/01/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-18T17:11:22-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Coding Journal</title><subtitle>My own personal journey towards becoming a software developer. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Recursion in C++</title><link href="http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html" rel="alternate" type="text/html" title="Recursion in C++" /><published>2020-01-18T15:34:04-08:00</published><updated>2020-01-18T15:34:04-08:00</updated><id>http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion%20DSA%201</id><content type="html" xml:base="http://localhost:4000/recursion/c++/datastructures/2020/01/18/Recursion-DSA-1.html">&lt;h1 id=&quot;what-is-recursion&quot;&gt;What is Recursion?&lt;/h1&gt;
+
+&lt;p&gt;Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-is-factorial&quot;&gt;What is factorial?&lt;/h1&gt;
+&lt;p&gt;A factorial function offers a wonderful opportunity to understand and trace recursion without becoming overwhelmed by the idea.Briefly, factorial is notated by a number followed by exclamation point, meaning that number multiplied by each number less than it until it is &amp;lt;=1. Essentially, 4! is 4*3*2*1.Other examples as follows.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;2!= 2*1&lt;/li&gt;
+  &lt;li&gt;0!= 1&lt;/li&gt;
+  &lt;li&gt;1!= 1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So now we have a understanding of factorial, lets jump into a function for recursion(written in C++)!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// A function for factorial. Takes and returns an integer.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Exit condition&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// Recursively calling the factorial function here. &lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;tracing&quot;&gt;Tracing&lt;/h1&gt;
+&lt;p&gt;For simplicity of tracing, F1 is the original function, F2 is the second call of the function until F99(99th call of the function).&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Attempting to trace this function with the number 3, we skip the first if statement and land at the else, arriving to 3*factorial(2).
+Here the computer calls the function again. Here a couple things happen under the hood.&lt;strong&gt;The current function(F1)pauses on the line return 3*factorial(2), while the function2(factorial(2)) becomes priority. 
+After the function2(F2) finishes executing, function1(F1) resumes.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;So we continue with factorial(2), which again skips the if statement and runs the else statement leading to 2*factorial(1). &lt;strong&gt;F2 pauses here and F3 begins&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;This time though, factorial(1) simply returns 1 back to the previous function(f2)&lt;strong&gt;F3 finishes&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;F2 resumes at 2*1, which 1 was returned from F3. F2 returns the product,2. &lt;strong&gt;F2 finishes&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;F1 resume at 3*2, which 2 was returned from F2. F1 returns the product 6 back to which function we imagined originally called it to run. &lt;strong&gt;F1 finishes&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;If you made it this far, congratulations. At this point you have some understanding of recursion.
+&lt;img src=&quot;https://cdn.discordapp.com/attachments/219382924540248065/668253617937055806/unknown.gif&quot; alt=&quot;Man walking into room on fire&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It may feel intimidating or difficult still however with time and implementation, the difficulty will rapidly decline. The next step lies in both identifying recursive opportunities and implementation.&lt;/p&gt;
+&lt;h1 id=&quot;further-learning&quot;&gt;Further Learning&lt;/h1&gt;
+
+&lt;p&gt;I highly recommend you spend time implementing Fibonacchi sequence, a simple search, exponent functions using recursion. Writing some of these both recursively and without recursion will benefit your understanding and usage of recursion. Later, if you identify a repetition of a certain process, it may be a good candidate for recursion.&lt;/p&gt;
+
+&lt;h1 id=&quot;resources&quot;&gt;Resources&lt;/h1&gt;
+&lt;p&gt;If you would like the read more about recurison, here are some resources I used.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://beginnersbook.com/2017/08/cpp-recursion/&quot;&gt;C++ implementation of factorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://javascript.info/recursion&quot;&gt;More indepth resource but in Java&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">What is Recursion? Recursion is the process of a function repeatedly calling itself until it reaches an exit condition. It is incredibly useful both for prettier code and some data structures which thrive and require recursion. Recursion has some drawbacks such as the amount of the stack(memory) it takes. Before we approach that, it helps to have a fundamental undersanding of factorial.</summary></entry><entry><title type="html">First Jekyll Post!</title><link href="http://localhost:4000/jekyll/update/2020/01/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="First Jekyll Post!" /><published>2020-01-17T16:22:04-08:00</published><updated>2020-01-17T16:22:04-08:00</updated><id>http://localhost:4000/jekyll/update/2020/01/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/01/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
