@@ -29,7 +29,7 @@ github_username:  twotonerebel3
 
 # Build settings
 future: true
-theme: minima
+theme: hacker
 plugins:
   - jekyll-feed
 
