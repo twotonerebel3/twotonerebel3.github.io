@@ -29,8 +29,6 @@ github_username:  twotonerebel3
 
 # Build settings
 future: true
-theme: hacker
-=======
 theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
